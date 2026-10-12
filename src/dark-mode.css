@@ -29,6 +29,11 @@
   color: var(--dark-muted);
 }
 
+:root[data-theme="dark"] body .site-header .admin-link,
+:root[data-theme="dark"] body .site-header .admin-link span {
+  color: #fff;
+}
+
 :root[data-theme="dark"] body :is(.text-link, .cancel-edit, .admin-product-row .text-button, .footer-column a) {
   color: #e6b3bc;
 }
