@@ -1,0 +1,5 @@
+.not-found-page{min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center}
+.not-found-code{font-family:'Playfair Display',serif;font-size:clamp(76px,16vw,132px);line-height:1;color:#e98797;letter-spacing:-.06em}
+.not-found-page h1{margin:14px 0 9px;font-family:'Playfair Display',serif;font-size:clamp(25px,5vw,36px);font-weight:500}
+.not-found-page p{margin-bottom:24px;color:#948783;font-size:12px}
+.not-found-page .button{border-radius:24px}

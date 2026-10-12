@@ -1,0 +1,15 @@
+.may-swal-popup{width:min(430px,calc(100vw - 32px));padding:28px;border-radius:18px;font-family:'Be Vietnam Pro',sans-serif}
+.may-swal-title{padding-top:4px;color:#38302f;font-family:'Playfair Display',serif;font-size:25px;font-weight:500}
+.may-swal-content{color:#766a66;font-size:13px;line-height:1.9}
+.may-swal-content strong{color:#453a37;font-size:15px}
+.may-swal-content small{display:inline-block;margin-top:7px;color:#948782;font-size:11px}
+.may-swal-confirm,.may-swal-cancel{margin:6px;padding:11px 16px;border:0;border-radius:24px;font:600 12px 'Be Vietnam Pro',sans-serif;cursor:pointer}
+.may-swal-confirm{background:#e98797;color:#fff}
+.may-swal-confirm:hover{background:#ca697c}
+.may-swal-cancel{background:#f5efed;color:#766a66}
+.may-swal-cancel:hover{background:#eee5e2}
+.may-stock-toast{width:min(92vw,380px);padding:12px 16px;border-radius:14px;font-family:'Be Vietnam Pro',sans-serif}
+.swal2-container.swal2-top{padding-top:max(12px,env(safe-area-inset-top))}
+.may-stock-toast .swal2-title{margin:0;font-size:13px;font-weight:600;line-height:1.5}
+.may-stock-toast .swal2-icon{width:25px;height:25px;margin:0 10px 0 0;font-size:9px}
+@media(max-width:480px){.may-stock-toast{width:calc(100vw - 28px);padding:11px 13px}.may-stock-toast .swal2-title{font-size:12px}}

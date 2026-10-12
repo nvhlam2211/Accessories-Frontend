@@ -1,0 +1,282 @@
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 120px;
+  color: #987b79;
+  font-size: 13px;
+}
+
+.loading-spinner {
+  width: 19px;
+  height: 19px;
+  border: 2px solid #f0deda;
+  border-top-color: #c77f87;
+  border-radius: 50%;
+  animation: loading-spin .75s linear infinite;
+}
+
+.loading-shimmer {
+  position: relative;
+  overflow: hidden;
+  background: #f3eae7;
+  border-radius: 8px;
+}
+
+.loading-shimmer::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 68%), transparent);
+  animation: loading-shimmer 1.35s ease-in-out infinite;
+}
+
+.loading-product-card {
+  overflow: hidden;
+  background: #fffdfb;
+  border: 1px solid #f0e8e4;
+  border-radius: 13px;
+}
+
+.loading-product-image {
+  aspect-ratio: .83;
+  border-radius: 0;
+}
+
+.loading-product-info {
+  display: grid;
+  gap: 11px;
+  padding: 14px 13px;
+}
+
+.loading-product-name {
+  width: 72%;
+  height: 14px;
+}
+
+.loading-product-price {
+  width: 38%;
+  height: 12px;
+}
+
+.loading-product-actions,
+.loading-detail-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 3px;
+}
+
+.loading-buy-button {
+  width: 92px;
+  height: 31px;
+  border-radius: 18px;
+}
+
+.loading-add-button {
+  width: 94px;
+  height: 31px;
+  border-radius: 18px;
+}
+
+.loading-detail-back {
+  width: 82px;
+  height: 14px;
+  margin-bottom: 24px;
+}
+
+.loading-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.loading-detail-image {
+  width: 100%;
+  height: 520px;
+}
+
+.loading-detail-info {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+
+.loading-detail-eyebrow {
+  width: 160px;
+  height: 12px;
+}
+
+.loading-detail-title {
+  width: min(80%, 330px);
+  height: 34px;
+}
+
+.loading-detail-price {
+  width: 115px;
+  height: 21px;
+}
+
+.loading-detail-copy {
+  width: 100%;
+  height: 12px;
+}
+
+.loading-detail-copy-short {
+  width: 70%;
+}
+
+.loading-detail-button {
+  width: 150px;
+  height: 43px;
+  border-radius: 24px;
+}
+
+.loading-cart-layout {
+  display: grid;
+  grid-template-columns: 1.5fr .7fr;
+  gap: 50px;
+}
+
+.loading-cart-items {
+  display: grid;
+  align-content: start;
+}
+
+.loading-cart-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 17px 0;
+  border-bottom: 1px solid #f0e8e4;
+}
+
+.loading-cart-image {
+  width: 85px;
+  height: 94px;
+  flex-shrink: 0;
+}
+
+.loading-cart-copy {
+  display: grid;
+  flex: 1;
+  gap: 12px;
+}
+
+.loading-cart-title {
+  width: 55%;
+  height: 15px;
+}
+
+.loading-cart-price {
+  width: 25%;
+  height: 12px;
+}
+
+.loading-cart-quantity {
+  width: 74px;
+  height: 27px;
+}
+
+.loading-cart-summary {
+  min-height: 185px;
+}
+
+.loading-admin-products {
+  display: grid;
+}
+
+.loading-admin-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0e8e4;
+}
+
+.loading-admin-image {
+  width: 55px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.loading-admin-copy {
+  display: grid;
+  flex: 1;
+  gap: 9px;
+}
+
+.loading-admin-name {
+  width: 52%;
+  height: 13px;
+}
+
+.loading-admin-stock {
+  width: 32%;
+  height: 10px;
+}
+
+.loading-admin-action {
+  width: 48px;
+  height: 25px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@keyframes loading-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loading-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner,
+  .loading-shimmer::after {
+    animation-duration: 3s;
+  }
+}
+
+@media (max-width: 900px) {
+  .loading-detail-grid {
+    gap: 40px;
+  }
+
+  .loading-detail-image {
+    height: 450px;
+  }
+}
+
+@media (max-width: 620px) {
+  .loading-detail-grid,
+  .loading-cart-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .loading-detail-image {
+    height: auto;
+    aspect-ratio: .95;
+  }
+
+  .loading-cart-image {
+    width: 70px;
+    height: 82px;
+  }
+
+  .loading-cart-summary {
+    min-height: 155px;
+  }
+}

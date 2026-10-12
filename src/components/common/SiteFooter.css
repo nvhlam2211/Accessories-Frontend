@@ -1,0 +1,18 @@
+.site-footer{background:#fff;padding:42px max(calc((100% - 1512px)/2),7%) 16px;position:relative;border-top:1px solid #ffe2ea}
+.footer-top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:65px;padding-bottom:20px;border-bottom:1px solid #f2e9eb}
+.footer-brand{font-size:22px}
+.footer-about p,.footer-column p{font-family:'Be Vietnam Pro',sans-serif;font-size:12px;line-height:1.85;color:#706769;font-weight:500;margin:14px 0 0}
+.footer-column{padding-top:5px}
+.footer-column h2{font-family:'Be Vietnam Pro',sans-serif;font-size:12px;font-weight:700;letter-spacing:.035em;color:#393539;margin:0 0 14px}
+.footer-column p{margin:6px 0}
+.footer-phone{color:#fa2672;font-weight:600}
+.footer-social-links{display:flex;align-items:center;gap:13px;margin-top:14px}
+.footer-social-links a{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:#fff1f6;color:#f32176;border-radius:24px;font-size:12px;font-weight:500;transition:.2s}
+.footer-social-links a:hover{background:#ffe2ec}
+.footer-social-links .footer-facebook-link{background:#1877f2;color:#fff}
+.footer-social-links .footer-facebook-link:hover{background:#1467d8;color:#fff}
+.footer-social-links .footer-instagram-link{background:linear-gradient(110deg,#feda75 0%,#fa7e1e 30%,#d62976 68%,#962fbf 100%);color:#fff}
+.footer-social-links a.footer-instagram-link:hover,.footer-social-links a.footer-instagram-link:focus-visible{background:linear-gradient(110deg,#f4c95d 0%,#ed6b12 30%,#c81f67 68%,#8425ad 100%);color:#fff;filter:none}
+.footer-bottom{display:flex;justify-content:space-between;gap:15px;padding-top:12px;font-size:10px;color:#a29498}
+@media(max-width:900px){.footer-top{gap:24px}.footer-column h2{font-size:10px}.footer-about p,.footer-column p{font-size:11px}}
+@media(max-width:620px){.site-footer{padding:30px 20px 14px}.footer-top{grid-template-columns:1fr;gap:22px;padding-bottom:19px}.footer-column{padding-top:0}.footer-column h2{margin-bottom:8px}.footer-about p,.footer-column p{font-size:11px;margin-top:7px}.footer-social-links{gap:8px;margin-top:11px}.footer-social-links a{font-size:11px;padding:8px 12px}.footer-bottom{flex-direction:column;gap:5px;font-size:9px}.footer-bottom span:last-child{text-align:left}}

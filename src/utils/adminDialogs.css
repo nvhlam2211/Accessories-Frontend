@@ -1,0 +1,11 @@
+.may-admin-swal-popup{width:min(460px,calc(100vw - 32px));padding:27px;border-radius:18px;font-family:'Be Vietnam Pro',sans-serif}
+.may-admin-swal-title{padding-top:4px;color:#38302f;font-family:'Playfair Display',serif;font-size:24px;font-weight:500}
+.may-admin-swal-content{color:#766a66;font-size:12px;line-height:1.8}
+.may-admin-swal-popup .swal2-textarea{width:100%;min-height:100px;border:1px solid #eadfdb;border-radius:10px;font:12px 'Be Vietnam Pro',sans-serif;box-shadow:none}
+.may-admin-swal-popup .swal2-textarea:focus{border-color:#d99ba0;box-shadow:0 0 0 2px #e987971c}
+.may-admin-swal-popup .swal2-validation-message{font-size:11px}
+.may-admin-swal-confirm,.may-admin-swal-cancel{margin:6px;padding:11px 16px;border:0;border-radius:24px;font:600 12px 'Be Vietnam Pro',sans-serif;cursor:pointer}
+.may-admin-swal-confirm{background:#e98797;color:#fff}
+.may-admin-swal-confirm:hover{background:#ca697c}
+.may-admin-swal-cancel{background:#f5efed;color:#766a66}
+.may-admin-swal-cancel:hover{background:#eee5e2}

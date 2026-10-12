@@ -1,0 +1,52 @@
+.back-to-top {
+  position: fixed;
+  z-index: 15;
+  left: max(20px, env(safe-area-inset-left));
+  bottom: max(82px, calc(env(safe-area-inset-bottom) + 70px));
+  display: grid;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #f0d5d5;
+  border-radius: 50%;
+  background: rgb(255 253 251 / 96%);
+  color: #a76670;
+  box-shadow: 0 4px 18px rgb(69 48 47 / 14%);
+  cursor: pointer;
+  animation: back-to-top-enter .2s ease-out both;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px);
+  background: #fff1f2;
+  border-color: #e9bdc2;
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid rgb(233 135 151 / 45%);
+  outline-offset: 3px;
+}
+
+@keyframes back-to-top-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 620px) {
+  .back-to-top {
+    left: max(12px, env(safe-area-inset-left));
+    bottom: max(76px, calc(env(safe-area-inset-bottom) + 64px));
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,11 @@
+.detail-purchase-actions{display:flex;flex-wrap:wrap;gap:10px}
+.detail-quantity{display:flex;align-items:center;gap:14px;margin:18px 0;color:#766a66;font-size:12px}
+.detail-quantity-control{display:inline-flex;align-items:center;border:1px solid #eadfdb;border-radius:22px;background:#fff}
+.detail-quantity-control button{display:grid;width:36px;height:36px;place-items:center;border:0;background:transparent;color:#b66f78;cursor:pointer}
+.detail-quantity-control button:disabled{opacity:.4;cursor:not-allowed}
+.detail-quantity-control input{width:42px;padding:0;border:0;background:transparent;color:#453a37;text-align:center;font:600 12px 'Be Vietnam Pro',sans-serif;appearance:textfield;-moz-appearance:textfield}
+.detail-quantity-control input::-webkit-inner-spin-button,.detail-quantity-control input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.detail-quantity-control input:focus{outline:none}
+.detail-buy-now{background:#fff;color:#b65f70;border:1px solid #e98797}
+.detail-buy-now:hover{background:#fff1f2;color:#a64f60}
+.detail-purchase-actions .button:disabled{opacity:.5}
