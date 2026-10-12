@@ -1,9 +1,14 @@
-.product-card .product-info{align-items:flex-start;gap:8px}
+.product-card{overflow:hidden;border:1px solid #f0e8e5;border-radius:18px;background:#fff}
+.product-card .product-info{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;gap:12px;padding:13px 14px 15px}
 .product-image-loading{position:absolute;inset:0;z-index:1}
 .product-card .product-price-info{min-width:0;flex:1}
+.product-card .product-name{display:block;overflow-wrap:anywhere;line-height:1.5}
+.product-card .product-price-info p{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px}
 .product-card-actions{display:flex;align-items:center;gap:7px}
+.product-card-actions button{flex:1;min-width:0}
 .product-buy-now{padding:8px 10px;border:0;border-radius:18px;background:#e98797;color:#fff;font:600 9px 'Be Vietnam Pro',sans-serif;white-space:nowrap;cursor:pointer}
 .product-buy-now:hover{background:#ca697c}
 .product-add-to-cart{padding:8px 10px;border:1px solid #f0dfdd;border-radius:18px;background:#fff;color:#a76d75;font:600 9px 'Be Vietnam Pro',sans-serif;white-space:nowrap;cursor:pointer}
 .product-add-to-cart:hover{background:#fff2f2;border-color:#e9c5c7}
-@media(max-width:620px){.product-card-actions{gap:5px}.product-buy-now,.product-add-to-cart{padding:7px 7px;font-size:8px}.product-card .product-info{gap:5px}}
+@media(max-width:620px){.product-card .product-info{gap:9px;padding:11px 10px 12px}.product-card-actions{gap:5px}.product-buy-now,.product-add-to-cart{padding:8px 5px;font-size:8px}}
+@media(hover:none){.product-image .quick-view{display:none}}

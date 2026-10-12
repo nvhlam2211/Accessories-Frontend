@@ -37,6 +37,7 @@
 .bag-button{display:flex;align-items:center;gap:6px}
 .bag-button span{font-size:11px;color:#ca697c}
 .admin-link{display:inline-flex;align-items:center;gap:7px;padding:11px 17px;background:#ff2d78;color:#fff;border-radius:24px;white-space:nowrap;box-shadow:0 3px 8px #ff408133}
+.admin-link span{color:inherit}
 .admin-link:hover{background:#ea2167;color:#fff}
 .user-avatar{width:44px;height:44px;display:block;object-fit:cover;border:2px solid #fff;border-radius:50%;background:#fff;box-shadow:0 2px 8px #5b39401c;flex-shrink:0}
 .user-greeting{color:#253148;font-size:14px;font-weight:500;white-space:nowrap}
