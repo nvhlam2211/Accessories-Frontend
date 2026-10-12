@@ -80,3 +80,6 @@
 .stock-ok{color:#628d68}
 .admin-page h1,.admin-page h2,.admin-page h3{font-family:'Be Vietnam Pro',sans-serif;letter-spacing:normal}
 @media(max-width:620px){.admin-dashboard{padding:14px}.admin-account-management{padding:14px}.admin-account-form{grid-template-columns:1fr}.admin-account-form .button{grid-column:auto}.admin-account-note-form{align-items:stretch;flex-direction:column}.admin-account-note-form .button{align-self:flex-start}.admin-revenue-cards{grid-template-columns:1fr}.admin-revenue-history{grid-template-columns:1fr}.admin-report-list{max-height:190px}.admin-revenue-cards strong{font-size:21px}.admin-sales-heading{align-items:flex-start;flex-direction:column;gap:0}.admin-sales-controls{align-items:flex-start;flex-direction:column;gap:9px}.admin-sale-summary{flex-wrap:wrap;gap:8px}.admin-sale-summary>div{flex-basis:100%}.admin-sale-summary>strong{margin-right:auto}}
+.admin-layout{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(22px,3vw,40px)}
+.admin-sale-empty{margin:0;color:#8d716f;font-size:11px;line-height:1.7}
+@media(max-width:850px){.admin-layout{grid-template-columns:1fr;gap:22px}}

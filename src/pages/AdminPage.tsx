@@ -43,7 +43,8 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
   const [saleEditError, setSaleEditError] = useState("");
   const [saleEditLoading, setSaleEditLoading] = useState(false);
   const [resetLoading, setResetLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [productError, setProductError] = useState("");
+  const [saleError, setSaleError] = useState("");
   const [reportError, setReportError] = useState("");
   const [salesError, setSalesError] = useState("");
 
@@ -51,7 +52,7 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
     try {
       setProducts(await productService.listAdmin());
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Không tải được sản phẩm.");
+      setProductError(cause instanceof Error ? cause.message : "Không tải được sản phẩm.");
       throw cause;
     } finally {
       setProductsLoading(false);
@@ -138,7 +139,7 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
     const form = event.currentTarget;
     const data = new FormData(form);
     setLoading(true);
-    setError("");
+    setProductError("");
     try {
       const result = editing
         ? await productService.update(editing.id, data)
@@ -149,10 +150,10 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
         ? "Sản phẩm hết hàng đã được xóa khỏi kho và cửa hàng."
         : editing ? "Đã cập nhật sản phẩm." : "Đã thêm sản phẩm mới.");
       await refreshAdminData().catch(() => {
-        setError("Đã lưu sản phẩm nhưng chưa thể làm mới dữ liệu. Vui lòng tải lại trang.");
+        setProductError("Đã lưu sản phẩm nhưng chưa thể làm mới dữ liệu. Vui lòng tải lại trang.");
       });
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Không lưu được sản phẩm.");
+      setProductError(cause instanceof Error ? cause.message : "Không lưu được sản phẩm.");
     } finally {
       setLoading(false);
     }
@@ -162,7 +163,7 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
     event.preventDefault();
     if (!selectedProduct) return;
     setSaleLoading(true);
-    setError("");
+    setSaleError("");
     try {
       const result = await adminService.recordSale(selectedProduct.id, Number(saleQuantity), Number(salePrice));
       if (result.productRemoved) {
@@ -176,10 +177,10 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
       try {
         await refreshAdminData();
       } catch {
-        setError("Đã ghi nhận giao dịch nhưng chưa thể làm mới dữ liệu. Vui lòng tải lại trang.");
+        setSaleError("Đã ghi nhận giao dịch nhưng chưa thể làm mới dữ liệu. Vui lòng tải lại trang.");
       }
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Không thể ghi nhận bán hàng.");
+      setSaleError(cause instanceof Error ? cause.message : "Không thể ghi nhận bán hàng.");
     } finally {
       setSaleLoading(false);
     }
@@ -191,10 +192,10 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
       await productService.remove(product.id);
       onNotice("Đã xóa sản phẩm.");
       await refreshAdminData().catch(() => {
-        setError("Đã xóa sản phẩm nhưng chưa thể làm mới dữ liệu. Vui lòng tải lại trang.");
+        setProductError("Đã xóa sản phẩm nhưng chưa thể làm mới dữ liệu. Vui lòng tải lại trang.");
       });
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : "Không xóa được sản phẩm.");
+      setProductError(cause instanceof Error ? cause.message : "Không xóa được sản phẩm.");
     }
   }
 
@@ -514,11 +515,11 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
           <label>Mô tả<textarea name="description" required maxLength={5000} defaultValue={editing?.description ?? ""} placeholder="Mô tả sản phẩm..." rows={4} /></label>
           <div className="form-row">
             <label>Giá (VNĐ)<input name="price" type="number" min="1" step="1" required defaultValue={editing?.price ?? ""} /></label>
-            <label>Số lượng<input name="stock" type="number" min="0" step="1" required defaultValue={editing?.stock ?? 0} /></label>
+            <label>Số lượng<input name="stock" type="number" min="1" step="1" required defaultValue={editing?.stock ?? ""} /></label>
           </div>
           <label>Giảm giá (%) <span className="muted">để trống nếu không sale</span><input name="discountPercent" type="number" min="0.01" max="99.99" step="0.01" defaultValue={editing?.discountPercent ?? ""} placeholder="Ví dụ: 20" /></label>
           <label>Ảnh sản phẩm {editing && <span className="muted">(để trống nếu không đổi ảnh)</span>}<input name="image" type="file" accept="image/jpeg,image/png,image/webp" required={!editing} /></label>
-          {error && <p className="inline-error">{error}</p>}
+          {productError && <p className="inline-error">{productError}</p>}
           <button className="button button-primary" disabled={loading}>{loading ? "Đang lưu..." : editing ? "Lưu thay đổi" : "Thêm sản phẩm"} <ArrowRight size={16} /></button>
           {editing && <button type="button" className="text-button cancel-edit" onClick={() => setEditing(null)}>Hủy chỉnh sửa</button>}
         </form>
@@ -536,7 +537,10 @@ export default function AdminPage({ user, loading: authLoading, onNotice }: { us
               <label>Số lượng bán<input type="number" min="1" max={selectedProduct?.stock ?? 100000} step="1" required value={saleQuantity} onChange={event => setSaleQuantity(event.target.value)} /></label>
               <label>Giá bán / sản phẩm (VNĐ)<input type="number" min="1" step="1" required value={salePrice} onChange={event => setSalePrice(event.target.value)} /></label>
             </div>
-            {error && <p className="inline-error">{error}</p>}
+            {saleError && <p className="inline-error">{saleError}</p>}
+            {!productsLoading && products.length === 0 && (
+              <p className="admin-sale-empty">Chưa có sản phẩm trong kho. Hãy thêm sản phẩm với số lượng lớn hơn 0 trước khi ghi nhận bán hàng.</p>
+            )}
             <button className="button button-primary" disabled={productsLoading || saleLoading || !selectedProduct || selectedProduct.stock < 1}>{saleLoading ? "Đang ghi nhận..." : "Ghi nhận giao dịch"} <ArrowRight size={16} /></button>
           </form>
           <section className="admin-products">
