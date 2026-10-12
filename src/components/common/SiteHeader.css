@@ -163,6 +163,9 @@
   .site-header .admin-link-compact{display:none}
   .site-header .text-button{white-space:nowrap}
 }
+@media(max-width:1100px){
+  .site-header--staff .header-actions .profile-link{display:none}
+}
 @media(max-width:760px){
   .site-header .user-avatar{display:none}
   .site-header .user-greeting{max-width:clamp(46px,16vw,100px);font-size:11px}

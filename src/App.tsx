@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import { ArrowUp, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import Swal from "sweetalert2";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import SiteHeader from "./components/common/SiteHeader";
 import SiteFooter from "./components/common/SiteFooter";
 import Chatbot from "./components/common/Chatbot";
-import "./components/common/BackToTop.css";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { CartProvider, useCart } from "./context/CartContext";
 import AdminPage from "./pages/AdminPage";
@@ -31,7 +30,6 @@ function AppContent() {
     }
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
-  const [showBackToTop, setShowBackToTop] = useState(false);
   const navigate = useNavigate();
 
   function showNotice(message: string) {
@@ -60,20 +58,6 @@ function AppContent() {
   useEffect(() => {
     if (cartError) showNotice(cartError);
   }, [cartError]);
-
-  useEffect(() => {
-    const updateVisibility = () => setShowBackToTop(window.scrollY > 360);
-    updateVisibility();
-    window.addEventListener("scroll", updateVisibility, { passive: true });
-    return () => window.removeEventListener("scroll", updateVisibility);
-  }, []);
-
-  function backToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
-    });
-  }
 
   async function addToCart(product: Product, quantity = 1) {
     if (!Number.isInteger(quantity) || quantity < 1) {
@@ -174,11 +158,6 @@ function AppContent() {
       </Routes>
       <SiteFooter />
       <Chatbot onAdd={product => void addToCart(product)} />
-      {showBackToTop && (
-        <button className="back-to-top" type="button" onClick={backToTop} aria-label="Nhấn để trở về đầu trang">
-          <ArrowUp size={19} aria-hidden="true" />
-        </button>
-      )}
       {notice && <div className="toast"><Check size={17} />{notice}</div>}
       {loginOpen && (
         <LoginPage

@@ -210,11 +210,11 @@ export default function SiteHeader({
               <Link
                 className="admin-link"
                 to="/admin"
-                aria-label={user.role === "SUPER_ADMIN" ? "Quản lý shop" : "Quản trị sản phẩm"}
-                title={user.role === "SUPER_ADMIN" ? "Quản lý shop" : "Quản trị sản phẩm"}
+                aria-label="Quản lý shop"
+                title="Quản lý shop"
               >
                 <ShieldCheck size={15} />
-                <span className="admin-link-label">{user.role === "SUPER_ADMIN" ? "Quản lý shop" : "Quản trị sản phẩm"}</span>
+                <span className="admin-link-label">Quản lý shop</span>
                 <span className="admin-link-compact">Quản lý</span>
               </Link>
             )}
@@ -258,7 +258,7 @@ export default function SiteHeader({
               {user ? (
                 <>
                   <span className="mobile-navigation-user">Xin chào, {displayName}</span>
-                  {(user.role === "ADMIN" || user.role === "SUPER_ADMIN") && <Link to="/admin" onClick={closeMobileMenu}><ShieldCheck size={16} />{user.role === "SUPER_ADMIN" ? "Quản lý shop" : "Quản trị sản phẩm"}</Link>}
+                  {(user.role === "ADMIN" || user.role === "SUPER_ADMIN") && <Link to="/admin" onClick={closeMobileMenu}><ShieldCheck size={16} />Quản lý shop</Link>}
                   <Link to="/profile" onClick={closeMobileMenu}><UserRound size={16} />Hồ sơ của tôi</Link>
                   <button type="button" onClick={() => { closeMobileMenu(); onSignOut(); }}>Đăng xuất</button>
                 </>
