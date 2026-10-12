@@ -146,3 +146,36 @@
   .site-header{gap:6px}
   .header-search{flex-basis:85px}
 }
+
+.admin-link-compact{display:none}
+@media(max-width:1100px){
+  .site-header .header-search{display:none}
+  .site-header .header-actions .profile-link,
+  .site-header .header-actions .admin-link,
+  .site-header .header-actions .text-button{display:inline-flex}
+  .site-header .header-actions .social-icon{display:none}
+  .site-header .header-actions .logout-button{display:none}
+  .site-header .profile-link{gap:6px}
+  .site-header .user-avatar{width:32px;height:32px}
+  .site-header .user-greeting{display:inline;max-width:clamp(64px,12vw,140px);overflow:hidden;text-overflow:ellipsis}
+  .site-header .profile-link-icon{display:block}
+  .site-header .admin-link{width:auto;height:36px;justify-content:center;padding:8px 12px;font-size:11px;gap:6px}
+  .site-header .admin-link-compact{display:none}
+  .site-header .text-button{white-space:nowrap}
+}
+@media(max-width:760px){
+  .site-header .user-avatar{display:none}
+  .site-header .user-greeting{max-width:clamp(46px,16vw,100px);font-size:11px}
+  .site-header .profile-link{gap:4px}
+  .site-header .admin-link{height:34px;padding:7px 9px}
+  .site-header .admin-link-label{display:none}
+  .site-header .admin-link-compact{display:inline}
+}
+@media(max-width:400px){
+  .site-header .header-actions{gap:5px}
+  .site-header .user-greeting{max-width:52px;font-size:10px}
+  .site-header .profile-link-icon{width:14px}
+  .site-header .admin-link{width:32px;height:32px;padding:0;font-size:0}
+  .site-header .admin-link-compact{display:none}
+  .site-header .admin-link svg{width:16px}
+}

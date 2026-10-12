@@ -206,7 +206,18 @@ export default function SiteHeader({
         <a className="social-icon instagram-icon" href={import.meta.env.VITE_INSTAGRAM_URL || "#"} target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={18} /></a>
         {user ? (
           <>
-            {(user.role === "ADMIN" || user.role === "SUPER_ADMIN") && <Link className="admin-link" to="/admin"><ShieldCheck size={15} /> {user.role === "SUPER_ADMIN" ? "Quản lý shop" : "Quản trị sản phẩm"}</Link>}
+            {(user.role === "ADMIN" || user.role === "SUPER_ADMIN") && (
+              <Link
+                className="admin-link"
+                to="/admin"
+                aria-label={user.role === "SUPER_ADMIN" ? "Quản lý shop" : "Quản trị sản phẩm"}
+                title={user.role === "SUPER_ADMIN" ? "Quản lý shop" : "Quản trị sản phẩm"}
+              >
+                <ShieldCheck size={15} />
+                <span className="admin-link-label">{user.role === "SUPER_ADMIN" ? "Quản lý shop" : "Quản trị sản phẩm"}</span>
+                <span className="admin-link-compact">Quản lý</span>
+              </Link>
+            )}
             <Link className="profile-link" to="/profile" aria-label="Hồ sơ người dùng">
               <img className="user-avatar" src="/favicon.png" alt="" aria-hidden="true" />
               <span className="user-greeting">{displayName}</span>
